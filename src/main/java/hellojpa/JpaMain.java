@@ -121,9 +121,20 @@ public class JpaMain {
 //			tx.commit();
 
 			/* 기본 키 매핑 - IDENTITY, SEQUENCE, TABLE 전략 테스트 */
-			Member member = new Member();
-			member.setUsername("UserA");		// id 값은 DB 가 자동으로 채움
+//			Member member = new Member();
+//			member.setUsername("UserA");		// id 값은 DB 가 자동으로 채움
+//
+//			em.persist(member);
+//
+//			tx.commit();
 
+			Team team = new Team();
+			team.setName("TeamA");
+			em.persist(team);			// team 을 영속화 => team 에 id 값 채워짐
+
+			Member member = new Member();
+			member.setUsername("member1");
+			member.setTeamId(team.getId());		// 외래 키를 직접 다룸 (바람직 X)
 			em.persist(member);
 
 			tx.commit();
