@@ -16,7 +16,8 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <property name="hibernate.hbm2ddl.auto" value="none" />
+            <!-- 애플리케이션 로딩 시점에 테이블(Member 등)을 drop 하고, 새로 create -->
         </properties>
     </persistence-unit>
 </persistence>

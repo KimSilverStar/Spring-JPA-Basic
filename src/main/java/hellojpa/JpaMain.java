@@ -120,6 +120,12 @@ public class JpaMain {
 //			// => 변경 감지(Dirty Checking)으로 인한 member.setName() Update 쿼리문 호출 X
 //			tx.commit();
 
+			/* IDENTITY 전략 테스트 */
+			Member member = new Member();
+			member.setUsername("UserA");		// id 값은 DB 가 자동으로 채움
+
+			em.persist(member);
+
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
