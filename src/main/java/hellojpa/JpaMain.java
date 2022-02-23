@@ -134,8 +134,16 @@ public class JpaMain {
 
 			Member member = new Member();
 			member.setUsername("member1");
-			member.setTeamId(team.getId());		// 외래 키를 직접 다룸 (바람직 X)
+//			member.setTeamId(team.getId());		// 외래 키를 직접 다룸 (바람직 X)
+			member.setTeam(team);
 			em.persist(member);
+
+			em.flush();
+			em.clear();
+
+			Member findMember = em.find(Member.class, member.getId());
+			Team findTeam = findMember.getTeam();
+			System.out.println("findTeam = " + findTeam.getName());
 
 			tx.commit();
 		} catch (Exception e) {

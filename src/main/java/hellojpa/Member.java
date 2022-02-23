@@ -25,8 +25,14 @@ public class Member {
 	@Column(name = "USERNAME")
 	private String username;
 
-	@Column(name = "TEAM_ID")
-	private Long teamId;
+	// 객체를 테이블에 맞추어 데이터 중심 설계한 잘못된 경우
+//	@Column(name = "TEAM_ID")
+//	private Long teamId;
+
+	// 객체지향 모델링: 객체 참조 이용 => 연관관계 명시, 외래 키 매핑
+	@ManyToOne						// 회원, 팀 - 다대일 연관관계
+	@JoinColumn(name = "TEAM_ID")	// 외래 키 매핑
+	private Team team;
 
 	public Member() {}
 
@@ -46,11 +52,11 @@ public class Member {
 		this.username = username;
 	}
 
-	public Long getTeamId() {
-		return teamId;
+	public Team getTeam() {
+		return team;
 	}
 
-	public void setTeamId(Long teamId) {
-		this.teamId = teamId;
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 }
