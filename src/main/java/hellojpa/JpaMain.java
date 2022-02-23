@@ -109,15 +109,17 @@ public class JpaMain {
 //			tx.commit();
 
 			/* 테스트 6 - [영속 컨텍스트를 준영속으로 분리] */
-			Member member = em.find(Member.class, 150L);		// 영속 상태
-			member.setName("AAA");
+//			Member member = em.find(Member.class, 150L);		// 영속 상태
+//			member.setName("AAA");
+//
+//			em.detach(member);		// 1) 영속성 컨텍스트에서 관리되는 member 엔티티를 분리 => 준영속 상태
+////			em.clear();				// 2) 영속석 컨텍스트에서 관리되는 모든 엔티티를 초기화 => 준영속 상태
+//			System.out.println("--------------------");
+//
+//			// 준영속 상태로 더 이상 영속성 컨텍스트에서 member 관리 X
+//			// => 변경 감지(Dirty Checking)으로 인한 member.setName() Update 쿼리문 호출 X
+//			tx.commit();
 
-			em.detach(member);		// 1) 영속성 컨텍스트에서 관리되는 member 엔티티를 분리 => 준영속 상태
-//			em.clear();				// 2) 영속석 컨텍스트에서 관리되는 모든 엔티티를 초기화 => 준영속 상태
-			System.out.println("--------------------");
-
-			// 준영속 상태로 더 이상 영속성 컨텍스트에서 member 관리 X
-			// => 변경 감지(Dirty Checking)으로 인한 member.setName() Update 쿼리문 호출 X
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
