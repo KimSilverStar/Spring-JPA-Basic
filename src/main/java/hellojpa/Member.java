@@ -4,10 +4,19 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity			// 객체와 테이블 매핑
-@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
+//@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
+@TableGenerator(
+		name = "MEMBER_SEQ_GENERATOR",
+		table = "MY_SEQUENCES",					// 생성되는 Table 이름
+		pkColumnValue = "MEMBER_SEQ",
+		allocationSize = 1
+)
 public class Member {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq_generator")
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq_generator")
+	@GeneratedValue(strategy = GenerationType.TABLE,
+			generator = "MEMBER_SEQ_GENERATOR")
 	private Long id;
 
 	// DB Column name 을 "name"으로 지정, null 제약조건 추가
