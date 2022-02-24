@@ -8,7 +8,7 @@ import java.util.List;
 - @JoinTable 로 연결 테이블 지정
 */
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")

@@ -11,7 +11,7 @@ import java.util.List;
   => 읽기 전용 필드로 만들어서, 양방향 처럼 흉내
 */
 
-@Entity
+//@Entity
 public class Team {
 	@Id @GeneratedValue
 	@Column(name = "TEAM_ID")

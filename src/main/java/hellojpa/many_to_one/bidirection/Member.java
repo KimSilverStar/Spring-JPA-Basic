@@ -10,7 +10,7 @@ import javax.persistence.*;
   => 반대편(Team)에 mappedBy 로 양방향 연관관계의 주인 명시
 */
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")

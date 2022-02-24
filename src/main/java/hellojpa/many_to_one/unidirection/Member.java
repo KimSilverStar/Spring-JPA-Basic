@@ -7,7 +7,7 @@ import javax.persistence.*;
 - @JoinColumn 으로 외래 키 지정
 */
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")

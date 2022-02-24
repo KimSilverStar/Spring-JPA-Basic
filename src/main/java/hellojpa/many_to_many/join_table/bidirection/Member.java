@@ -11,7 +11,7 @@ import java.util.List;
 - 반대편 테이블에 mappedBy 로 양방향 연관관계 주인 명시
 */
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")

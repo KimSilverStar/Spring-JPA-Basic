@@ -8,7 +8,7 @@ import javax.persistence.*;
 - 외래 키에 데이터베이스 유니크(UNI) 제약조건 추가
 */
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")

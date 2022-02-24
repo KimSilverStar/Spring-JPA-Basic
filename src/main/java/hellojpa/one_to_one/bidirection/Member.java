@@ -11,7 +11,7 @@ import javax.persistence.*;
   => 주인 반대쪽에는 mappedBy 명시
 */
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")

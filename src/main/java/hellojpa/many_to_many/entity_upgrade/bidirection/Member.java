@@ -11,7 +11,7 @@ import java.util.List;
 - 연관관계의 주인이 아닌 Member 에는 mappedBy 로 주인 명시
 */
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")

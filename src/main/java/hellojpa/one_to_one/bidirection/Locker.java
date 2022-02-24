@@ -2,7 +2,7 @@ package hellojpa.one_to_one.bidirection;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Locker {
 	@Id @GeneratedValue
 	@Column(name = "LOCKER_ID")

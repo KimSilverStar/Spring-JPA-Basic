@@ -2,7 +2,7 @@ package hellojpa.one_to_many.bidirection;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")

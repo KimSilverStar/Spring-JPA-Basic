@@ -16,7 +16,7 @@ import java.util.List;
    연관관계 관리를 위해 UPDATE 쿼리가 추가로 발생
 */
 
-@Entity
+//@Entity
 public class Team {
 	@Id @GeneratedValue
 	@Column(name = "TEAM_ID")
