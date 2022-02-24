@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class JpaMain {
 	public static void main(String[] args) {
@@ -134,16 +133,24 @@ public class JpaMain {
 
 			Member member = new Member();
 			member.setUsername("member1");
-//			member.setTeamId(team.getId());		// 외래 키를 직접 다룸 (바람직 X)
-			member.setTeam(team);
 			em.persist(member);
+
+			team.addMember(member);		// 양방향 연관관계 편의 메소드
+			// => Member.team 과 Team 의 List<Members> 양쪽에 값 입력
 
 			em.flush();
 			em.clear();
 
-			Member findMember = em.find(Member.class, member.getId());
-			Team findTeam = findMember.getTeam();
-			System.out.println("findTeam = " + findTeam.getName());
+//			Member findMember = em.find(Member.class, member.getId());
+//
+//			// 단방향 연관관계: Member -> Team
+//			Team findTeam = findMember.getTeam();
+//			System.out.println("findTeam = " + findTeam.getName());
+//
+//			// 양방향 연관관계: Member <-> Team
+//			List<Member> members = findMember.getTeam().getMembers();
+//			for (Member m : members)
+//				System.out.println("m = " + m.getUsername());
 
 			tx.commit();
 		} catch (Exception e) {

@@ -1,9 +1,8 @@
 package hellojpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Team {
@@ -12,6 +11,10 @@ public class Team {
 	private Long id;
 
 	private String name;
+
+	// 팀, 회원 - 일대다 연관관계
+	@OneToMany(mappedBy = "team")		// 양방향 연관관계에서, 주인 Member.team 에 의해 매핑됨
+	private List<Member> members = new ArrayList<>();
 
 	public Team() {}
 
@@ -29,5 +32,19 @@ public class Team {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Member> getMembers() {
+		return members;
+	}
+
+	public void setMembers(List<Member> members) {
+		this.members = members;
+	}
+
+	// 양방향 연관관계 편의 메소드
+	public void addMember(Member member) {
+		members.add(member);
+		member.setTeam(this);		// 연관관계의 주인: Member.team
 	}
 }
