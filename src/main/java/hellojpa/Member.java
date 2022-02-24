@@ -29,7 +29,10 @@ public class Member extends BaseEntity {
 //	private Long teamId;
 
 	// 객체지향 모델링: 객체 참조 이용 => 연관관계 명시, 외래 키 매핑
-	@ManyToOne						// 회원, 팀 - 다대일 연관관계
+	// FetchType.LAZY => 프록시 조회를 이용한 지연 로딩
+	// FetchType.EAGER => 즉시 조회 - Member 와 Team 을 join 하여 함께 로딩
+//	@ManyToOne(fetch = FetchType.EAGER)		// 회원, 팀 - 다대일 연관관계
+	@ManyToOne(fetch = FetchType.LAZY)		// 회원, 팀 - 다대일 연관관계
 	@JoinColumn(name = "TEAM_ID")	// 외래 키 매핑 => 양방향 연관관계에서, 외래 키를 갖는 쪽이 주인
 	private Team team;				// => Member.team 이 양방향 연관관계의 주인
 
