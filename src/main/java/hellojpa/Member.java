@@ -2,7 +2,7 @@ package hellojpa;
 
 import javax.persistence.*;
 
-@Entity			// 객체와 테이블 매핑
+//@Entity			// 객체와 테이블 매핑
 //@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
 //@TableGenerator(
 //		name = "MEMBER_SEQ_GENERATOR",
