@@ -2,7 +2,7 @@ package hellojpa.value_type.embeded_type;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")
