@@ -8,7 +8,7 @@ import java.util.Set;
 
 import static javax.persistence.CascadeType.*;
 
-@Entity
+//@Entity
 public class Member {
 	@Id @GeneratedValue
 	@Column(name = "MEMBER_ID")
