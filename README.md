@@ -20,5 +20,5 @@
 * 고급 매핑
 * 프록시와 연관관계 관리
 * 값 타입
-* 객체지향 쿼리 언어 1 - 기본 문법
-* 객체지향 쿼리 언어 2 - 중급 문법
+* 객체지향 쿼리 언어
+* 객체지향 쿼리 언어 - JPQL (https://github.com/KimSilverStar/Spring-JPA-Basic-JPQL)
